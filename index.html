@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee King | অরিজিনাল কফি ও কফি অনুষঙ্গ — সারা দেশে হোম ডেলিভারি</title>
+<meta name="description" content="Coffee King — নানা ফ্লেভারের অথেনটিক কফি, কফি মগ, গ্রাইন্ডার, সুগার ফ্রি ও গিফট প্যাক। ছোট-বড় সব সাইজের প্যাকেট, সারা বাংলাদেশে ডেলিভারি।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#2A1A12; --roast:#4A2C1C; --gold:#D9A441; --gold-l:#F6D78B; --gold-d:#A8741E;
+  --cream:#FBF4E8; --latte:#F1E2C8; --text:#2B211B; --muted:#6E5E52; --white:#fff;
+  --radius:18px; --shadow:0 10px 30px rgba(42,26,18,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hind Siliguri',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;font-size:17px}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.container{width:min(1140px,92%);margin:auto}
+.section{padding:80px 0}
+.section-title{text-align:center;margin-bottom:46px}
+.section-title .tag{display:inline-block;background:var(--latte);color:var(--gold-d);font-weight:600;padding:4px 16px;border-radius:50px;font-size:14px;margin-bottom:10px}
+.section-title h2{font-size:clamp(26px,4vw,38px);color:var(--espresso);line-height:1.3}
+.section-title p{color:var(--muted);max-width:620px;margin:10px auto 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:50px;font-weight:600;font-family:inherit;font-size:17px;border:none;cursor:pointer;transition:.25s}
+.btn-gold{background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,var(--gold-d));color:var(--espresso);box-shadow:0 6px 18px rgba(217,164,65,.4)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,164,65,.5)}
+.btn-outline{border:2px solid var(--gold);color:var(--gold-l);background:transparent}
+.btn-outline:hover{background:var(--gold);color:var(--espresso)}
+.btn-dark{background:var(--espresso);color:var(--gold-l)}
+.btn-dark:hover{background:var(--roast)}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(42,26,18,.96);backdrop-filter:blur(6px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Lora',serif;color:var(--gold);font-size:22px;letter-spacing:2px}
+.nav-links{display:flex;gap:26px;color:var(--latte);font-weight:500}
+.nav-links a:hover{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.cart-btn{position:relative;background:var(--gold);color:var(--espresso);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:20px}
+.cart-count{position:absolute;top:-4px;right:-4px;background:#C0392B;color:#fff;font-size:12px;min-width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-weight:700}
+.menu-toggle{display:none;background:none;border:none;color:var(--gold);font-size:28px;cursor:pointer}
+
+/* Hero */
+.hero{background:radial-gradient(circle at 70% 40%,#5A3522 0%,var(--espresso) 65%);color:var(--cream);padding:90px 0 100px;overflow:hidden;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold-l);padding:5px 16px;border-radius:50px;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(32px,5.2vw,56px);line-height:1.25;margin-bottom:18px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--latte);font-size:19px;margin-bottom:30px;max-width:540px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-size:26px;color:var(--gold)}
+.hero-stats div span{font-size:14px;color:var(--latte)}
+.hero-art{display:grid;place-items:center}
+.hero-art svg{width:min(420px,100%);filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.steam path{animation:steam 3s ease-in-out infinite;opacity:.8}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes steam{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-12px);opacity:.9}}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature{background:#fff;padding:30px 26px;border-radius:var(--radius);box-shadow:var(--shadow);transition:.25s;border-top:4px solid var(--gold)}
+.feature:hover{transform:translateY(-6px)}
+.feature .icon{font-size:36px;margin-bottom:12px}
+.feature h3{color:var(--espresso);margin-bottom:6px;font-size:20px}
+.feature p{color:var(--muted);font-size:16px}
+
+/* Products */
+.products-bg{background:var(--latte)}
+.filter-bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.filter-bar button{border:2px solid var(--espresso);background:transparent;color:var(--espresso);padding:8px 20px;border-radius:50px;font-family:inherit;font-weight:600;cursor:pointer;font-size:15px}
+.filter-bar button.active,.filter-bar button:hover{background:var(--espresso);color:var(--gold-l)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s}
+.card:hover{transform:translateY(-5px)}
+.card-img{height:170px;display:grid;place-items:center;font-size:64px;position:relative}
+.card-img .pill{position:absolute;top:12px;left:12px;background:var(--espresso);color:var(--gold-l);font-size:12px;padding:3px 12px;border-radius:50px}
+.card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card-body h3{font-size:19px;color:var(--espresso);line-height:1.35}
+.card-body .desc{font-size:15px;color:var(--muted);flex:1}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sizes button{border:1.5px solid var(--latte);background:var(--cream);padding:4px 12px;border-radius:8px;font-family:inherit;font-size:14px;cursor:pointer}
+.sizes button.active{border-color:var(--gold);background:var(--gold);color:var(--espresso);font-weight:700}
+.price-row{display:flex;align-items:center;justify-content:space-between}
+.price{font-size:22px;font-weight:700;color:var(--gold-d)}
+.add-btn{background:var(--espresso);color:var(--gold-l);border:none;padding:9px 16px;border-radius:50px;font-family:inherit;font-weight:600;cursor:pointer;font-size:15px}
+.add-btn:hover{background:var(--gold);color:var(--espresso)}
+
+/* Offer strip */
+.offer{background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));color:var(--espresso);padding:40px 0;text-align:center}
+.offer h2{font-size:clamp(22px,3.4vw,32px)}
+.offer p{font-size:18px;margin:6px 0 18px}
+
+/* Payment */
+.pay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.pay{background:#fff;border-radius:14px;padding:22px 12px;text-align:center;box-shadow:var(--shadow);font-weight:600;color:var(--espresso)}
+.pay .icon{font-size:30px;margin-bottom:6px}
+.pay small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+.step{text-align:center;padding:10px}
+.step .num{width:52px;height:52px;margin:0 auto 10px;border-radius:50%;background:var(--espresso);color:var(--gold);display:grid;place-items:center;font-size:22px;font-weight:700}
+.step h4{color:var(--espresso)}
+.step p{font-size:15px;color:var(--muted)}
+
+/* Reviews */
+.reviews-bg{background:var(--espresso);color:var(--cream)}
+.reviews-bg .section-title h2{color:var(--gold-l)}
+.reviews-bg .section-title p{color:var(--latte)}
+.review-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:start}
+.review-list{display:grid;gap:18px}
+.review{background:rgba(255,255,255,.06);border:1px solid rgba(217,164,65,.3);border-radius:var(--radius);padding:22px}
+.review .stars{color:var(--gold);font-size:18px;letter-spacing:2px}
+.review p{margin:8px 0;color:var(--latte)}
+.review .who{font-weight:600;color:var(--gold-l)}
+.review .reply{margin-top:10px;padding:10px 14px;border-left:3px solid var(--gold);background:rgba(217,164,65,.08);font-size:15px;color:var(--latte)}
+.empty-review{text-align:center;padding:40px 20px;border:2px dashed rgba(217,164,65,.4);border-radius:var(--radius);color:var(--latte)}
+.form-box{background:#fff;color:var(--text);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.form-box h3{color:var(--espresso);margin-bottom:14px}
+.form-box label{font-size:15px;font-weight:600;display:block;margin:10px 0 4px}
+.form-box input,.form-box textarea,.form-box select{width:100%;padding:11px 14px;border:1.5px solid var(--latte);border-radius:10px;font-family:inherit;font-size:16px;background:var(--cream)}
+.form-box input:focus,.form-box textarea:focus,.form-box select:focus{outline:none;border-color:var(--gold)}
+.star-pick{display:flex;gap:4px;font-size:30px;cursor:pointer;color:#ccc}
+.star-pick span.on{color:var(--gold)}
+.form-box .btn{width:100%;justify-content:center;margin-top:16px}
+.form-note{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+
+/* FAQ */
+.faq{max-width:820px;margin:auto;display:grid;gap:14px}
+.faq details{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:18px 22px}
+.faq summary{cursor:pointer;font-weight:600;color:var(--espresso);font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:'+';color:var(--gold);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq details p{margin-top:10px;color:var(--muted)}
+
+/* Notify */
+.notify{background:radial-gradient(circle at 30% 50%,#5A3522,var(--espresso) 70%);color:var(--cream);text-align:center;border-radius:28px;padding:56px 26px;margin:0 auto}
+.notify h2{font-size:clamp(24px,3.6vw,34px);color:var(--gold-l)}
+.notify p{color:var(--latte);margin:8px auto 24px;max-width:560px}
+.notify form{display:flex;gap:10px;max-width:520px;margin:auto;flex-wrap:wrap;justify-content:center}
+.notify input{flex:1;min-width:220px;padding:14px 20px;border-radius:50px;border:none;font-family:inherit;font-size:16px}
+
+/* Footer */
+footer{background:#1C100A;color:var(--latte);padding:60px 0 24px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}
+footer h4{color:var(--gold);margin-bottom:12px;font-size:18px}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:var(--gold)}
+.copy{text-align:center;border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:14px;color:#a8998a}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;font-size:30px;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:40}
+
+/* Cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--cream);z-index:70;transform:translateX(100%);transition:.35s;display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:var(--espresso);color:var(--gold-l)}
+.drawer-head button{background:none;border:none;color:var(--gold-l);font-size:28px;cursor:pointer}
+.drawer-body{flex:1;overflow:auto;padding:18px 22px}
+.cart-item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--latte)}
+.cart-item h5{font-size:16px;color:var(--espresso)}
+.cart-item small{color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);background:#fff;cursor:pointer;font-weight:700}
+.drawer-foot{padding:18px 22px;border-top:2px solid var(--latte);background:#fff}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;color:var(--espresso);margin-bottom:12px}
+.drawer-foot .form-box{padding:0;box-shadow:none}
+.drawer-foot .btn{width:100%;justify-content:center}
+
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--espresso);color:var(--gold-l);padding:12px 24px;border-radius:50px;opacity:0;transition:.3s;z-index:80;font-weight:600}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero-grid,.review-wrap{grid-template-columns:1fr}
+  .hero{text-align:center;padding:60px 0 70px}
+  .hero p{margin-inline:auto}
+  .hero-btns,.hero-stats{justify-content:center}
+  .hero-art{order:-1}.hero-art svg{width:240px}
+  .features{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .nav-links{position:absolute;top:68px;left:0;right:0;background:var(--espresso);flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:.3s}
+  .nav-links.open{max-height:400px}
+  .nav-links a{padding:14px 5%;border-top:1px solid rgba(255,255,255,.08)}
+  .menu-toggle{display:block}
+}
+@media(max-width:560px){
+  .section{padding:60px 0}
+  .features{grid-template-columns:1fr}
+  .logo span{font-size:18px}
+  .nav-right .btn{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <svg width="34" height="26" viewBox="-180 -140 360 240"><path d="M-150 60 L-172 -78 L-88 -6 L0 -112 L88 -6 L172 -78 L150 60 Z" fill="#D9A441"/><rect x="-156" y="58" width="312" height="36" rx="6" fill="#D9A441"/><circle cx="-172" cy="-86" r="18" fill="#D9A441"/><circle cx="0" cy="-122" r="20" fill="#D9A441"/><circle cx="172" cy="-86" r="18" fill="#D9A441"/></svg>
+      <span>COFFEE KING</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">সুবিধা</a>
+      <a href="#products">প্রোডাক্ট</a>
+      <a href="#payment">পেমেন্ট</a>
+      <a href="#reviews">রিভিউ</a>
+      <a href="#faq">প্রশ্নোত্তর</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#products" class="btn btn-gold" style="padding:9px 20px;font-size:15px">অর্ডার করুন</a>
+      <button class="cart-btn" onclick="openCart()" aria-label="কার্ট">🛒<span class="cart-count" id="cartCount">০</span></button>
+      <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="মেনু">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">☕ ১০০% অথেনটিক ও অরিজিনাল কফি</span>
+      <h1>প্রতিটি চুমুকে <span>রাজকীয়</span> স্বাদ — সব কফি এক জায়গায়</h1>
+      <p>নানা ফ্লেভারের অরিজিনাল কফি, সুন্দর কফি মগ, গ্রাইন্ডার, সুগার ফ্রি আর গিফট প্যাক — সব পাবেন Coffee King-এ। অল্প কিনে টেস্ট করুন, পছন্দ হলে বড় প্যাকেট নিন।</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-gold">🛒 এখনই অর্ডার করুন</a>
+        <a href="#notify" class="btn btn-outline">🔔 নতুন ফ্লেভারের খবর পান</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>১০+</strong><span>কফি ভ্যারিয়েন্ট</span></div>
+        <div><strong>৬৪ জেলা</strong><span>হোম ডেলিভারি</span></div>
+        <div><strong>সহজ</strong><span>রিটার্ন পলিসি</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="-260 -290 520 530" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D78B"/><stop offset=".5" stop-color="#D9A441"/><stop offset="1" stop-color="#A8741E"/></linearGradient>
+          <linearGradient id="c" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9D3AC"/><stop offset=".45" stop-color="#FFF6E6"/><stop offset="1" stop-color="#D8BC8C"/></linearGradient>
+        </defs>
+        <g transform="translate(0 -215) scale(.55)"><path d="M-150 60 L-172 -78 L-88 -6 L0 -112 L88 -6 L172 -78 L150 60 Z" fill="url(#g)"/><rect x="-156" y="58" width="312" height="36" rx="6" fill="url(#g)"/><circle cx="-172" cy="-86" r="16" fill="url(#g)"/><circle cx="0" cy="-122" r="18" fill="url(#g)"/><circle cx="172" cy="-86" r="16" fill="url(#g)"/></g>
+        <g class="steam" fill="none" stroke="#F3E3C3" stroke-width="10" stroke-linecap="round">
+          <path d="M-60 -60 C -90 -90 -30 -115 -60 -150"/><path d="M0 -50 C -30 -85 30 -115 0 -160"/><path d="M60 -60 C 30 -90 90 -115 60 -150"/>
+        </g>
+        <ellipse cx="0" cy="188" rx="240" ry="34" fill="url(#c)"/>
+        <path d="M160 -10 C 270 -20 280 120 140 120" fill="none" stroke="url(#c)" stroke-width="30" stroke-linecap="round"/>
+        <path d="M-175 -40 L175 -40 L155 120 Q145 172 92 172 L-92 172 Q-145 172 -155 120 Z" fill="url(#c)"/>
+        <ellipse cx="0" cy="-40" rx="175" ry="28" fill="#3A1F12" stroke="#E9D3AC" stroke-width="6"/>
+        <rect x="-170" y="40" width="340" height="10" fill="#D9A441"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">কেন Coffee King?</span>
+      <h2>কফিপ্রেমীদের জন্য সব সুবিধা এক জায়গায়</h2>
+      <p>বাসায় বা অফিসে প্রতিদিনের কফি হোক নিশ্চিন্ত, সুস্বাদু আর সাশ্রয়ী।</p>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="icon">🌿</div><h3>অথেনটিক ও অরিজিনাল</h3><p>বিশ্বস্ত উৎস থেকে সংগ্রহ করা আসল কফি — কোনো ভেজাল বা নকলের ভয় নেই।</p></div>
+      <div class="feature"><div class="icon">☕</div><h3>অনেক ভ্যারিয়েন্ট</h3><p>এসপ্রেসো, আরাবিকা, হ্যাজেলনাট, ভ্যানিলা, ক্যারামেল, মোকা — জনপ্রিয় সব ফ্লেভার।</p></div>
+      <div class="feature"><div class="icon">📦</div><h3>ছোট, মাঝারি, বড় প্যাকেট</h3><p>অল্প কিনে টেস্ট করুন, পছন্দের ফ্লেভার খুঁজে নিন — তারপর বড় প্যাকেটে সাশ্রয় করুন।</p></div>
+      <div class="feature"><div class="icon">💰</div><h3>প্রতিযোগিতামূলক দাম</h3><p>সীমিত লাভে বিক্রি, আর নিয়মিত কাস্টমারদের জন্য বিশেষ লয়ালটি ডিসকাউন্ট।</p></div>
+      <div class="feature"><div class="icon">🚚</div><h3>সারা দেশে ডেলিভারি</h3><p>ঢাকা থেকে দেশের যেকোনো জেলায় — দ্রুত ও নিরাপদ হোম ডেলিভারি।</p></div>
+      <div class="feature"><div class="icon">🤝</div><h3>রিটার্ন ও কাস্টমার সার্ভিস</h3><p>প্রোডাক্টে কোনো সমস্যা পেলে রিটার্নের সুবিধা। যেকোনো প্রশ্নে আমরা পাশে আছি।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Products ===== -->
+<section class="section products-bg" id="products">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">আমাদের প্রোডাক্ট</span>
+      <h2>পছন্দের কফি ও অনুষঙ্গ বেছে নিন</h2>
+      <p>সাইজ বাছাই করে কার্টে যোগ করুন — তারপর সহজেই অর্ডার কনফার্ম করুন।</p>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <button class="active" data-f="all">সব</button>
+      <button data-f="coffee">কফি</button>
+      <button data-f="accessory">অনুষঙ্গ</button>
+      <button data-f="gift">গিফট</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Offer strip ===== -->
+<section class="offer">
+  <div class="container">
+    <h2>🎁 নিয়মিত কাস্টমারদের জন্য লয়ালটি ডিসকাউন্ট!</h2>
+    <p>আমাদের থেকে বারবার কিনুন, প্রতিবার বাড়তি সাশ্রয় উপভোগ করুন। প্রিয়জনকে উপহার দিতে আছে সুন্দর গিফট প্যাকিং।</p>
+    <a href="#products" class="btn btn-dark">অফার দেখুন ও অর্ডার করুন →</a>
+  </div>
+</section>
+
+<!-- ===== Payment ===== -->
+<section class="section" id="payment">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">পেমেন্ট ও ডেলিভারি</span>
+      <h2>যেভাবে খুশি পেমেন্ট করুন</h2>
+      <p>মোবাইল ব্যাংকিং, ডেবিট/ক্রেডিট কার্ড বা Google Pay — আপনার সুবিধামতো।</p>
+    </div>
+    <div class="pay-grid">
+      <div class="pay"><div class="icon">📱</div>বিকাশ<small>মোবাইল ব্যাংকিং</small></div>
+      <div class="pay"><div class="icon">📱</div>নগদ<small>মোবাইল ব্যাংকিং</small></div>
+      <div class="pay"><div class="icon">📱</div>রকেট<small>মোবাইল ব্যাংকিং</small></div>
+      <div class="pay"><div class="icon">💳</div>ডেবিট কার্ড<small>Visa / Mastercard</small></div>
+      <div class="pay"><div class="icon">💳</div>ক্রেডিট কার্ড<small>Visa / Mastercard / Amex</small></div>
+      <div class="pay"><div class="icon">🅖</div>Google Pay<small>দ্রুত ও নিরাপদ</small></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">১</div><h4>কফি বাছাই</h4><p>পছন্দের ফ্লেভার ও সাইজ কার্টে যোগ করুন</p></div>
+      <div class="step"><div class="num">২</div><h4>তথ্য দিন</h4><p>নাম, ফোন ও ঠিকানা লিখুন</p></div>
+      <div class="step"><div class="num">৩</div><h4>পেমেন্ট</h4><p>পছন্দের পেমেন্ট পদ্ধতি বেছে নিন</p></div>
+      <div class="step"><div class="num">৪</div><h4>ডেলিভারি</h4><p>দরজায় পৌঁছে যাবে আপনার কফি</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reviews ===== -->
+<section class="section reviews-bg" id="reviews">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">কাস্টমার রিভিউ</span>
+      <h2>আপনার মতামতই আমাদের শক্তি</h2>
+      <p>প্রতিটি রিভিউ আমরা মনোযোগ দিয়ে পড়ি এবং সেই অনুযায়ী উত্তর ও উন্নতি করি।</p>
+    </div>
+    <div class="review-wrap">
+      <div class="review-list" id="reviewList"></div>
+      <form class="form-box" id="reviewForm">
+        <h3>✍️ আপনার রিভিউ দিন</h3>
+        <label>রেটিং</label>
+        <div class="star-pick" id="starPick"><span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span></div>
+        <label for="rName">আপনার নাম</label>
+        <input id="rName" required placeholder="যেমন: রহিম আহমেদ">
+        <label for="rText">আপনার মতামত</label>
+        <textarea id="rText" rows="4" required placeholder="কফির স্বাদ, প্যাকেজিং, ডেলিভারি নিয়ে লিখুন..."></textarea>
+        <button class="btn btn-gold" type="submit">রিভিউ পাঠান</button>
+        <p class="form-note">রিভিউ WhatsApp-এ আমাদের কাছে পৌঁছাবে; যাচাইয়ের পর এখানে প্রকাশ করা হবে।</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag">প্রশ্নোত্তর</span>
+      <h2>সাধারণ জিজ্ঞাসা</h2>
+    </div>
+    <div class="faq">
+      <details><summary>আপনাদের কফি কি আসল/অরিজিনাল?</summary><p>হ্যাঁ। আমরা শুধুমাত্র বিশ্বস্ত উৎস থেকে সংগ্রহ করা অথেনটিক কফি বিক্রি করি। কোনো সন্দেহ থাকলে আমাদের সাথে যোগাযোগ করুন।</p></details>
+      <details><summary>কোন কোন সাইজের প্যাকেট পাওয়া যায়?</summary><p>প্রায় সব কফি ছোট (৫০ গ্রাম), মাঝারি (১০০ গ্রাম) এবং বড় (২৫০ গ্রাম) প্যাকেটে পাওয়া যায়। নতুন ফ্লেভার টেস্ট করতে ছোট প্যাকেট দিয়ে শুরু করুন।</p></details>
+      <details><summary>ডেলিভারি কোথায় কোথায় দেন এবং কত দিন লাগে?</summary><p>দেশের যেকোনো স্থানে ডেলিভারি দেওয়া হয়। ঢাকার ভেতরে সাধারণত ১–২ দিন এবং ঢাকার বাইরে ২–৪ দিন সময় লাগে।</p></details>
+      <details><summary>কীভাবে পেমেন্ট করবো?</summary><p>বিকাশ, নগদ, রকেট, ডেবিট/ক্রেডিট কার্ড এবং Google Pay — যেকোনো মাধ্যমে পেমেন্ট করতে পারবেন। অর্ডার কনফার্মের সময় পেমেন্টের বিস্তারিত জানিয়ে দেওয়া হবে।</p></details>
+      <details><summary>প্রোডাক্টে সমস্যা থাকলে রিটার্ন করা যাবে?</summary><p>অবশ্যই। প্যাকেট ক্ষতিগ্রস্ত, মেয়াদোত্তীর্ণ বা ভুল প্রোডাক্ট পেলে ডেলিভারির পর দ্রুত আমাদের জানান — আমরা রিপ্লেস বা রিফান্ড করে দেবো।</p></details>
+      <details><summary>উপহার হিসেবে পাঠানো যাবে?</summary><p>হ্যাঁ। গিফট বক্স ও গিফট প্যাকিং সুবিধা আছে। অর্ডারের সময় জানালে আমরা সুন্দর করে প্যাক করে প্রাপকের ঠিকানায় পাঠিয়ে দেবো।</p></details>
+      <details><summary>লয়ালটি ডিসকাউন্ট কীভাবে পাবো?</summary><p>নিয়মিত অর্ডার করলেই আপনি লয়াল কাস্টমার হিসেবে বিশেষ ডিসকাউন্ট পাবেন। বিস্তারিত জানতে আমাদের ফোন বা ফেসবুক পেজে যোগাযোগ করুন।</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Notify ===== -->
+<section class="section" id="notify" style="padding-top:0">
+  <div class="container">
+    <div class="notify">
+      <h2>🔔 নতুন ফ্লেভার এলেই জানতে চান?</h2>
+      <p>আপনার মোবাইল নম্বর দিন — নতুন ভ্যারিয়েন্টের কফি এলে ও বিশেষ অফার থাকলে সবার আগে আপনাকে জানাবো।</p>
+      <form id="notifyForm">
+        <input type="tel" id="notifyPhone" required placeholder="আপনার মোবাইল নম্বর (01XXXXXXXXX)" pattern="01[3-9][0-9]{8}">
+        <button class="btn btn-gold" type="submit">আমাকে জানাবেন</button>
+      </form>
+      <p style="font-size:14px;margin-top:16px">অথবা আমাদের <a href="https://www.facebook.com/coffeekingbd/" target="_blank" rel="noopener" style="color:var(--gold)">ফেসবুক পেজ</a> ফলো করুন।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer id="contact">
+  <div class="container foot-grid">
+    <div>
+      <a href="#home" class="logo" style="margin-bottom:12px">☕ <span>COFFEE KING</span></a>
+      <p>অথেনটিক কফি ও কফি অনুষঙ্গের বিশ্বস্ত অনলাইন শপ। সারা বাংলাদেশে হোম ডেলিভারি।</p>
+      <a href="#products" class="btn btn-gold" style="margin-top:16px">এখনই অর্ডার করুন</a>
+    </div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <ul>
+        <li>📞 <a href="tel:+8801716266907">০১৭১৬-২৬৬৯০৭</a></li>
+        <li>💬 <a href="https://wa.me/8801716266907" target="_blank" rel="noopener">WhatsApp-এ মেসেজ</a></li>
+        <li>📍 ভজহরি সাহা স্ট্রিট, ওয়ারী, ঢাকা</li>
+        <li>📘 <a href="https://www.facebook.com/coffeekingbd/" target="_blank" rel="noopener">facebook.com/coffeekingbd</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>দ্রুত লিংক</h4>
+      <ul>
+        <li><a href="#features">সুবিধা</a></li>
+        <li><a href="#products">প্রোডাক্ট</a></li>
+        <li><a href="#payment">পেমেন্ট</a></li>
+        <li><a href="#reviews">রিভিউ</a></li>
+        <li><a href="#faq">প্রশ্নোত্তর</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© <span id="year"></span> Coffee King। সর্বস্বত্ব সংরক্ষিত।</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/8801716266907" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<!-- ===== Cart drawer ===== -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="শপিং কার্ট">
+  <div class="drawer-head"><h3>🛒 আপনার কার্ট</h3><button onclick="closeCart()" aria-label="বন্ধ করুন">×</button></div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>মোট</span><span id="cartTotal">৳০</span></div>
+    <form class="form-box" id="checkoutForm">
+      <input id="cName" required placeholder="আপনার নাম">
+      <input id="cPhone" type="tel" required placeholder="মোবাইল নম্বর" pattern="01[3-9][0-9]{8}" style="margin-top:8px">
+      <textarea id="cAddress" rows="2" required placeholder="সম্পূর্ণ ঠিকানা (জেলা সহ)" style="margin-top:8px"></textarea>
+      <select id="cPay" required style="margin-top:8px">
+        <option value="">পেমেন্ট পদ্ধতি বাছাই করুন</option>
+        <option>বিকাশ</option><option>নগদ</option><option>রকেট</option>
+        <option>ডেবিট কার্ড</option><option>ক্রেডিট কার্ড</option><option>Google Pay</option>
+      </select>
+      <label style="display:flex;gap:8px;align-items:center;font-weight:500;margin-top:8px"><input type="checkbox" id="cGift" style="width:auto"> গিফট প্যাকিং চাই</label>
+      <button class="btn btn-gold" type="submit">✅ অর্ডার কনফার্ম করুন</button>
+      <p class="form-note">অর্ডারটি WhatsApp-এ আমাদের কাছে যাবে; আমরা কল করে পেমেন্ট ও ডেলিভারি কনফার্ম করবো।</p>
+    </form>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   ব্যবসার তথ্য — এখানে পরিবর্তন করলেই পুরো সাইটে আপডেট হবে
+   ============================================================ */
+const WHATSAPP = "8801716266907";
+
+/* প্রোডাক্ট লিস্ট — নাম, বিবরণ, দাম (টাকায়) নিজের মতো বদলে নিন।
+   দামগুলো নমুনা হিসেবে দেওয়া, আসল দাম বসিয়ে দিন। */
+const PRODUCTS = [
+  {name:"ক্লাসিক এসপ্রেসো রোস্ট", cat:"coffee", emoji:"☕", bg:"#4A2C1C", tag:"বেস্ট সেলার", desc:"গাঢ়, শক্তিশালী স্বাদ — সকালের এনার্জির জন্য পারফেক্ট।", sizes:{"৫০ গ্রাম":220,"১০০ গ্রাম":420,"২৫০ গ্রাম":990}},
+  {name:"কলম্বিয়ান আরাবিকা", cat:"coffee", emoji:"🫘", bg:"#6B3D22", tag:"প্রিমিয়াম", desc:"মসৃণ ও হালকা টক-মিষ্টি স্বাদের ১০০% আরাবিকা বিন।", sizes:{"৫০ গ্রাম":260,"১০০ গ্রাম":490,"২৫০ গ্রাম":1150}},
+  {name:"হ্যাজেলনাট ফ্লেভার্ড কফি", cat:"coffee", emoji:"🌰", bg:"#8A5A34", tag:"জনপ্রিয়", desc:"বাদামের মিষ্টি সুবাসে ভরা ক্রিমি কফি।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"ফ্রেঞ্চ ভ্যানিলা কফি", cat:"coffee", emoji:"🍦", bg:"#A9814F", tag:"", desc:"নরম ভ্যানিলার ছোঁয়ায় মিষ্টি ও আরামদায়ক স্বাদ।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"ক্যারামেল কফি", cat:"coffee", emoji:"🍯", bg:"#B7742C", tag:"", desc:"মিষ্টি ক্যারামেলের স্বাদ — যারা হালকা মিষ্টি পছন্দ করেন।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"মোকা চকলেট কফি", cat:"coffee", emoji:"🍫", bg:"#3E2418", tag:"নতুন", desc:"কফি আর চকলেটের দারুণ মিশেল।", sizes:{"৫০ গ্রাম":250,"১০০ গ্রাম":480,"২৫০ গ্রাম":1120}},
+  {name:"ক্যাপুচিনো ইনস্ট্যান্ট মিক্স", cat:"coffee", emoji:"🥛", bg:"#C9A27A", tag:"", desc:"গরম পানিতে মিশালেই ফেনাযুক্ত ক্যাপুচিনো — অফিসের জন্য সেরা।", sizes:{"১০ স্যাশে":250,"২০ স্যাশে":480,"৫০ স্যাশে":1150}},
+  {name:"গোল্ড ইনস্ট্যান্ট কফি", cat:"coffee", emoji:"✨", bg:"#9C6B2E", tag:"", desc:"ঝটপট তৈরি, প্রিমিয়াম স্বাদের ফ্রিজ-ড্রায়েড ইনস্ট্যান্ট কফি।", sizes:{"৫০ গ্রাম":280,"১০০ গ্রাম":540,"২০০ গ্রাম":1040}},
+  {name:"সিরামিক কফি মগ", cat:"accessory", emoji:"🍵", bg:"#D9A441", tag:"", desc:"সুন্দর ডিজাইনের মজবুত সিরামিক মগ — নানা রঙে।", sizes:{"৩০০ মিলি":350,"৪০০ মিলি":450}},
+  {name:"ম্যানুয়াল কফি গ্রাইন্ডার", cat:"accessory", emoji:"⚙️", bg:"#5A3522", tag:"", desc:"তাজা বিন গুঁড়ো করে নিন — অ্যাডজাস্টেবল গ্রাইন্ড সাইজ।", sizes:{"স্ট্যান্ডার্ড":1450,"প্রিমিয়াম":2350}},
+  {name:"সুগার ফ্রি সুইটনার", cat:"accessory", emoji:"🍬", bg:"#E2C48F", tag:"", desc:"চিনি ছাড়াই মিষ্টি কফি — স্বাস্থ্য সচেতনদের জন্য।", sizes:{"৫০ ট্যাবলেট":180,"১০০ ট্যাবলেট":320}},
+  {name:"কফি গিফট বক্স", cat:"gift", emoji:"🎁", bg:"#A8741E", tag:"উপহারের জন্য", desc:"৩টি ফ্লেভার + মগ, সুন্দর গিফট প্যাকিংসহ — প্রিয়জনের জন্য।", sizes:{"স্ট্যান্ডার্ড বক্স":1490,"প্রিমিয়াম বক্স":2490}}
+];
+
+/* প্রকাশিত রিভিউ — কাস্টমার রিভিউ পেয়ে যাচাই করার পর এখানে যোগ করুন।
+   উদাহরণ: {name:"নাম", stars:5, text:"মতামত", reply:"আমাদের উত্তর"} */
+const REVIEWS = [];
+
+/* ============================================================ */
+const bn = n => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+const taka = n => "৳" + bn(n.toLocaleString("en-IN"));
+const waLink = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+let cart = [];
+
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+function renderProducts(filter="all"){
+  const grid=document.getElementById('productGrid');
+  grid.innerHTML="";
+  PRODUCTS.forEach((p,i)=>{
+    if(filter!=="all" && p.cat!==filter) return;
+    const sizes=Object.keys(p.sizes);
+    const card=document.createElement('div');
+    card.className="card";
+    card.innerHTML=`
+      <div class="card-img" style="background:linear-gradient(135deg,${p.bg},#2A1A12)">${p.tag?`<span class="pill">${p.tag}</span>`:""}${p.emoji}</div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="sizes">${sizes.map((s,j)=>`<button class="${j===0?'active':''}" data-s="${s}">${s}</button>`).join("")}</div>
+        <div class="price-row"><span class="price">${taka(p.sizes[sizes[0]])}</span><button class="add-btn">+ কার্টে যোগ</button></div>
+      </div>`;
+    let sel=sizes[0];
+    card.querySelectorAll('.sizes button').forEach(b=>b.onclick=()=>{
+      card.querySelectorAll('.sizes button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active'); sel=b.dataset.s;
+      card.querySelector('.price').textContent=taka(p.sizes[sel]);
+    });
+    card.querySelector('.add-btn').onclick=()=>addToCart(i,sel);
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('#filterBar button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filterBar button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); renderProducts(b.dataset.f);
+});
+
+function addToCart(i,size){
+  const found=cart.find(c=>c.i===i&&c.size===size);
+  found?found.qty++:cart.push({i,size,qty:1});
+  renderCart(); toast("✅ কার্টে যোগ হয়েছে");
+}
+function changeQty(k,d){cart[k].qty+=d; if(cart[k].qty<1) cart.splice(k,1); renderCart()}
+function cartTotal(){return cart.reduce((s,c)=>s+PRODUCTS[c.i].sizes[c.size]*c.qty,0)}
+function renderCart(){
+  const box=document.getElementById('cartItems');
+  document.getElementById('cartCount').textContent=bn(cart.reduce((s,c)=>s+c.qty,0));
+  document.getElementById('cartTotal').textContent=taka(cartTotal());
+  if(!cart.length){box.innerHTML=`<p style="text-align:center;color:var(--muted);padding:40px 0">কার্ট খালি। পছন্দের কফি যোগ করুন ☕</p>`;return}
+  box.innerHTML=cart.map((c,k)=>{const p=PRODUCTS[c.i];return `
+    <div class="cart-item">
+      <div><h5>${p.emoji} ${p.name}</h5><small>${c.size} × ${taka(p.sizes[c.size])}</small>
+        <div class="qty"><button onclick="changeQty(${k},-1)">−</button>${bn(c.qty)}<button onclick="changeQty(${k},1)">+</button></div></div>
+      <strong>${taka(p.sizes[c.size]*c.qty)}</strong>
+    </div>`}).join("");
+}
+function openCart(){document.getElementById('drawer').classList.add('show');document.getElementById('overlay').classList.add('show')}
+function closeCart(){document.getElementById('drawer').classList.remove('show');document.getElementById('overlay').classList.remove('show')}
+
+document.getElementById('checkoutForm').onsubmit=e=>{
+  e.preventDefault();
+  if(!cart.length){toast("কার্টে কোনো প্রোডাক্ট নেই");return}
+  const lines=cart.map(c=>{const p=PRODUCTS[c.i];return `• ${p.name} (${c.size}) × ${c.qty} = ${p.sizes[c.size]*c.qty} টাকা`}).join("\n");
+  const msg=`🛒 নতুন অর্ডার — Coffee King\n\n${lines}\n\nমোট: ${cartTotal()} টাকা (ডেলিভারি চার্জ আলাদা)\n\nনাম: ${cName.value}\nফোন: ${cPhone.value}\nঠিকানা: ${cAddress.value}\nপেমেন্ট: ${cPay.value}\nগিফট প্যাকিং: ${cGift.checked?"হ্যাঁ":"না"}`;
+  window.open(waLink(msg),"_blank");
+  toast("ধন্যবাদ! অর্ডার পাঠানো হচ্ছে...");
+};
+
+/* Reviews */
+function renderReviews(){
+  const list=document.getElementById('reviewList');
+  if(!REVIEWS.length){
+    list.innerHTML=`<div class="empty-review"><div style="font-size:42px">⭐</div><h3 style="color:var(--gold-l);margin:8px 0">এখনো কোনো রিভিউ প্রকাশিত হয়নি</h3><p>আমাদের কফি ট্রাই করে প্রথম রিভিউটি আপনিই দিন!</p></div>`;
+    return;
+  }
+  list.innerHTML=REVIEWS.map(r=>`
+    <div class="review"><div class="stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+    <p>“${r.text}”</p><div class="who">— ${r.name}</div>
+    ${r.reply?`<div class="reply"><strong>Coffee King:</strong> ${r.reply}</div>`:""}</div>`).join("");
+}
+let rating=5;
+const stars=document.querySelectorAll('#starPick span');
+function paintStars(){stars.forEach(s=>s.classList.toggle('on',+s.dataset.v<=rating))}
+stars.forEach(s=>s.onclick=()=>{rating=+s.dataset.v;paintStars()});
+document.getElementById('reviewForm').onsubmit=e=>{
+  e.preventDefault();
+  const msg=`⭐ নতুন রিভিউ — Coffee King\n\nরেটিং: ${rating}/5\nনাম: ${rName.value}\nমতামত: ${rText.value}`;
+  window.open(waLink(msg),"_blank");
+  e.target.reset(); rating=5; paintStars();
+  toast("ধন্যবাদ! আপনার রিভিউ পাঠানো হয়েছে");
+};
+
+/* Notify */
+document.getElementById('notifyForm').onsubmit=e=>{
+  e.preventDefault();
+  window.open(waLink(`🔔 নতুন ফ্লেভার এলে আমাকে জানাবেন।\nআমার নম্বর: ${notifyPhone.value}`),"_blank");
+  e.target.reset(); toast("✅ আপনাকে জানানো হবে!");
+};
+
+/* Close mobile menu on link click */
+document.querySelectorAll('#navLinks a').forEach(a=>a.onclick=()=>navLinks.classList.remove('open'));
+
+document.getElementById('year').textContent=bn(new Date().getFullYear());
+renderProducts(); renderCart(); renderReviews(); paintStars();
+</script>
+</body>
+</html>
