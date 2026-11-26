@@ -77,8 +77,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(42,26,18,.96);backdrop-f
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
 .card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s}
 .card:hover{transform:translateY(-5px)}
-.card-img{height:170px;display:grid;place-items:center;font-size:64px;position:relative}
-.card-img .pill{position:absolute;top:12px;left:12px;background:var(--espresso);color:var(--gold-l);font-size:12px;padding:3px 12px;border-radius:50px}
+.card-img{height:200px;overflow:hidden;display:grid;place-items:center;font-size:64px;position:relative}
+.card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .card-img img{transform:scale(1.05)}
+.card-img .pill{z-index:2;position:absolute;top:12px;left:12px;background:var(--espresso);color:var(--gold-l);font-size:12px;padding:3px 12px;border-radius:50px}
 .card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card-body h3{font-size:19px;color:var(--espresso);line-height:1.35}
 .card-body .desc{font-size:15px;color:var(--muted);flex:1}
@@ -455,20 +457,22 @@ footer a:hover{color:var(--gold)}
 const WHATSAPP = "8801716266907";
 
 /* প্রোডাক্ট লিস্ট — নাম, বিবরণ, দাম (টাকায়) নিজের মতো বদলে নিন।
+   ছবি: images ফোল্ডারে img-এ লেখা নামেই ছবি রাখুন (যেমন images/espresso.jpg)।
+   ছবি না থাকলে ইমোজি দেখাবে।
    দামগুলো নমুনা হিসেবে দেওয়া, আসল দাম বসিয়ে দিন। */
 const PRODUCTS = [
-  {name:"ক্লাসিক এসপ্রেসো রোস্ট", cat:"coffee", emoji:"☕", bg:"#4A2C1C", tag:"বেস্ট সেলার", desc:"গাঢ়, শক্তিশালী স্বাদ — সকালের এনার্জির জন্য পারফেক্ট।", sizes:{"৫০ গ্রাম":220,"১০০ গ্রাম":420,"২৫০ গ্রাম":990}},
-  {name:"কলম্বিয়ান আরাবিকা", cat:"coffee", emoji:"🫘", bg:"#6B3D22", tag:"প্রিমিয়াম", desc:"মসৃণ ও হালকা টক-মিষ্টি স্বাদের ১০০% আরাবিকা বিন।", sizes:{"৫০ গ্রাম":260,"১০০ গ্রাম":490,"২৫০ গ্রাম":1150}},
-  {name:"হ্যাজেলনাট ফ্লেভার্ড কফি", cat:"coffee", emoji:"🌰", bg:"#8A5A34", tag:"জনপ্রিয়", desc:"বাদামের মিষ্টি সুবাসে ভরা ক্রিমি কফি।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
-  {name:"ফ্রেঞ্চ ভ্যানিলা কফি", cat:"coffee", emoji:"🍦", bg:"#A9814F", tag:"", desc:"নরম ভ্যানিলার ছোঁয়ায় মিষ্টি ও আরামদায়ক স্বাদ।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
-  {name:"ক্যারামেল কফি", cat:"coffee", emoji:"🍯", bg:"#B7742C", tag:"", desc:"মিষ্টি ক্যারামেলের স্বাদ — যারা হালকা মিষ্টি পছন্দ করেন।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
-  {name:"মোকা চকলেট কফি", cat:"coffee", emoji:"🍫", bg:"#3E2418", tag:"নতুন", desc:"কফি আর চকলেটের দারুণ মিশেল।", sizes:{"৫০ গ্রাম":250,"১০০ গ্রাম":480,"২৫০ গ্রাম":1120}},
-  {name:"ক্যাপুচিনো ইনস্ট্যান্ট মিক্স", cat:"coffee", emoji:"🥛", bg:"#C9A27A", tag:"", desc:"গরম পানিতে মিশালেই ফেনাযুক্ত ক্যাপুচিনো — অফিসের জন্য সেরা।", sizes:{"১০ স্যাশে":250,"২০ স্যাশে":480,"৫০ স্যাশে":1150}},
-  {name:"গোল্ড ইনস্ট্যান্ট কফি", cat:"coffee", emoji:"✨", bg:"#9C6B2E", tag:"", desc:"ঝটপট তৈরি, প্রিমিয়াম স্বাদের ফ্রিজ-ড্রায়েড ইনস্ট্যান্ট কফি।", sizes:{"৫০ গ্রাম":280,"১০০ গ্রাম":540,"২০০ গ্রাম":1040}},
-  {name:"সিরামিক কফি মগ", cat:"accessory", emoji:"🍵", bg:"#D9A441", tag:"", desc:"সুন্দর ডিজাইনের মজবুত সিরামিক মগ — নানা রঙে।", sizes:{"৩০০ মিলি":350,"৪০০ মিলি":450}},
-  {name:"ম্যানুয়াল কফি গ্রাইন্ডার", cat:"accessory", emoji:"⚙️", bg:"#5A3522", tag:"", desc:"তাজা বিন গুঁড়ো করে নিন — অ্যাডজাস্টেবল গ্রাইন্ড সাইজ।", sizes:{"স্ট্যান্ডার্ড":1450,"প্রিমিয়াম":2350}},
-  {name:"সুগার ফ্রি সুইটনার", cat:"accessory", emoji:"🍬", bg:"#E2C48F", tag:"", desc:"চিনি ছাড়াই মিষ্টি কফি — স্বাস্থ্য সচেতনদের জন্য।", sizes:{"৫০ ট্যাবলেট":180,"১০০ ট্যাবলেট":320}},
-  {name:"কফি গিফট বক্স", cat:"gift", emoji:"🎁", bg:"#A8741E", tag:"উপহারের জন্য", desc:"৩টি ফ্লেভার + মগ, সুন্দর গিফট প্যাকিংসহ — প্রিয়জনের জন্য।", sizes:{"স্ট্যান্ডার্ড বক্স":1490,"প্রিমিয়াম বক্স":2490}}
+  {name:"ক্লাসিক এসপ্রেসো রোস্ট", img:"images/espresso.jpg", cat:"coffee", emoji:"☕", bg:"#4A2C1C", tag:"বেস্ট সেলার", desc:"গাঢ়, শক্তিশালী স্বাদ — সকালের এনার্জির জন্য পারফেক্ট।", sizes:{"৫০ গ্রাম":220,"১০০ গ্রাম":420,"২৫০ গ্রাম":990}},
+  {name:"কলম্বিয়ান আরাবিকা", img:"images/arabica.jpg", cat:"coffee", emoji:"🫘", bg:"#6B3D22", tag:"প্রিমিয়াম", desc:"মসৃণ ও হালকা টক-মিষ্টি স্বাদের ১০০% আরাবিকা বিন।", sizes:{"৫০ গ্রাম":260,"১০০ গ্রাম":490,"২৫০ গ্রাম":1150}},
+  {name:"হ্যাজেলনাট ফ্লেভার্ড কফি", img:"images/hazelnut.jpg", cat:"coffee", emoji:"🌰", bg:"#8A5A34", tag:"জনপ্রিয়", desc:"বাদামের মিষ্টি সুবাসে ভরা ক্রিমি কফি।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"ফ্রেঞ্চ ভ্যানিলা কফি", img:"images/vanilla.jpg", cat:"coffee", emoji:"🍦", bg:"#A9814F", tag:"", desc:"নরম ভ্যানিলার ছোঁয়ায় মিষ্টি ও আরামদায়ক স্বাদ।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"ক্যারামেল কফি", img:"images/caramel.jpg", cat:"coffee", emoji:"🍯", bg:"#B7742C", tag:"", desc:"মিষ্টি ক্যারামেলের স্বাদ — যারা হালকা মিষ্টি পছন্দ করেন।", sizes:{"৫০ গ্রাম":240,"১০০ গ্রাম":460,"২৫০ গ্রাম":1090}},
+  {name:"মোকা চকলেট কফি", img:"images/mocha.jpg", cat:"coffee", emoji:"🍫", bg:"#3E2418", tag:"নতুন", desc:"কফি আর চকলেটের দারুণ মিশেল।", sizes:{"৫০ গ্রাম":250,"১০০ গ্রাম":480,"২৫০ গ্রাম":1120}},
+  {name:"ক্যাপুচিনো ইনস্ট্যান্ট মিক্স", img:"images/cappuccino.jpg", cat:"coffee", emoji:"🥛", bg:"#C9A27A", tag:"", desc:"গরম পানিতে মিশালেই ফেনাযুক্ত ক্যাপুচিনো — অফিসের জন্য সেরা।", sizes:{"১০ স্যাশে":250,"২০ স্যাশে":480,"৫০ স্যাশে":1150}},
+  {name:"গোল্ড ইনস্ট্যান্ট কফি", img:"images/gold-instant.jpg", cat:"coffee", emoji:"✨", bg:"#9C6B2E", tag:"", desc:"ঝটপট তৈরি, প্রিমিয়াম স্বাদের ফ্রিজ-ড্রায়েড ইনস্ট্যান্ট কফি।", sizes:{"৫০ গ্রাম":280,"১০০ গ্রাম":540,"২০০ গ্রাম":1040}},
+  {name:"সিরামিক কফি মগ", img:"images/mug.jpg", cat:"accessory", emoji:"🍵", bg:"#D9A441", tag:"", desc:"সুন্দর ডিজাইনের মজবুত সিরামিক মগ — নানা রঙে।", sizes:{"৩০০ মিলি":350,"৪০০ মিলি":450}},
+  {name:"ম্যানুয়াল কফি গ্রাইন্ডার", img:"images/grinder.jpg", cat:"accessory", emoji:"⚙️", bg:"#5A3522", tag:"", desc:"তাজা বিন গুঁড়ো করে নিন — অ্যাডজাস্টেবল গ্রাইন্ড সাইজ।", sizes:{"স্ট্যান্ডার্ড":1450,"প্রিমিয়াম":2350}},
+  {name:"সুগার ফ্রি সুইটনার", img:"images/sugar-free.jpg", cat:"accessory", emoji:"🍬", bg:"#E2C48F", tag:"", desc:"চিনি ছাড়াই মিষ্টি কফি — স্বাস্থ্য সচেতনদের জন্য।", sizes:{"৫০ ট্যাবলেট":180,"১০০ ট্যাবলেট":320}},
+  {name:"কফি গিফট বক্স", img:"images/gift-box.jpg", cat:"gift", emoji:"🎁", bg:"#A8741E", tag:"উপহারের জন্য", desc:"৩টি ফ্লেভার + মগ, সুন্দর গিফট প্যাকিংসহ — প্রিয়জনের জন্য।", sizes:{"স্ট্যান্ডার্ড বক্স":1490,"প্রিমিয়াম বক্স":2490}}
 ];
 
 /* প্রকাশিত রিভিউ — কাস্টমার রিভিউ পেয়ে যাচাই করার পর এখানে যোগ করুন।
@@ -492,7 +496,7 @@ function renderProducts(filter="all"){
     const card=document.createElement('div');
     card.className="card";
     card.innerHTML=`
-      <div class="card-img" style="background:linear-gradient(135deg,${p.bg},#2A1A12)">${p.tag?`<span class="pill">${p.tag}</span>`:""}${p.emoji}</div>
+      <div class="card-img" style="background:linear-gradient(135deg,${p.bg},#2A1A12)">${p.tag?`<span class="pill">${p.tag}</span>`:""}${p.emoji}${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()">`:""}</div>
       <div class="card-body">
         <h3>${p.name}</h3>
         <p class="desc">${p.desc}</p>
